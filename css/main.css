@@ -114,13 +114,23 @@ h1 {
   margin: 1vh;
   width: 15vh;
   height: 15vh;
-
-
 }
 .bg-win {
-  background-color: blueviolet;
+  background-color: rgb(50, 205, 66);
+  transition: 0.4s;
+  transform: scale(1.05);
 }
-
+.bg-lose {
+  background-color: red;
+  transition: 0.4s;
+  transform: scale(1.05);
+}
+.winMessage {
+  color: rgb(50, 205, 66);
+}
+.loseMessage {
+  color: red;
+}
 
 
 
