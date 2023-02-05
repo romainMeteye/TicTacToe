@@ -23,7 +23,16 @@
 </head>
 
 <body>
-  
+
+  <div class="menu">
+    <h2 class="text-center">Choisir le difficulté de l'IA</h2>
+    <article class="d-flex justify-content-around mt-5">
+      <button type="button" class="btn btn-outline-success" onclick="start('easy')">Facile</button>
+      <button type="button" class="btn btn-outline-warning" onclick="start('normal')">Normal</button>
+      <button type="button" class="btn btn-outline-danger" onclick="start('hard')">Difficile</button>
+    </article>
+  </div>
+  <div id="game">
   <h1 class="text-center">Morpion</h1>
   <div class="container">
     <div class="row">
@@ -42,8 +51,8 @@
   </div>
   <h4 id="turnText" class="text-center mt-5"></h4>
   <h4 id="winText" class="text-center mt-5"></h4>
-  <article class="d-flex justify-content-center"><button type="button" class="btn btn-outline-danger" onclick="game()">Rejouer</button></article>
-  
+  <article class="d-flex justify-content-center"><button type="button" class="btn btn-outline-danger" onclick="restart()">Rejouer</button></article>
+</div>
  
 
 

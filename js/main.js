@@ -1,4 +1,8 @@
 var currentPlayer = 1;
+var difficulty = "";
+let gameDiv = document.getElementById("game");
+gameDiv.setAttribute("class","hidemenu");
+
 function game() {
     // ###### RESET ######
     let listAllCases = document.getElementsByClassName("col");
@@ -105,9 +109,15 @@ function game() {
                 currentPlayer ++;
             
             // ###### AI DIFFICULTY ######
-                // easy(iaPoss,testEnd,gridP2,listCases,turnText,grid);
-                // medium(iaPoss,testEnd,gridP1,gridP2,listCases,turnText,grid);
+            if (difficulty === 'easy') {
+                easy(iaPoss,testEnd,gridP2,listCases,turnText,grid);
+            };
+            if (difficulty === 'normal') {
+                medium(iaPoss,testEnd,gridP1,gridP2,listCases,turnText,grid);
+            };
+            if (difficulty === 'hard') {
                 hard(iaPoss,testEnd,gridP1,gridP2,listCases,turnText,grid);
+            };
             // ########### PLAYER 2 ############
             } else if (currentPlayer === 2 && getCase.childNodes.length === 0) {
                 // secondPlayer(getCase,testEnd,gridP2,listCases,turnText);
@@ -118,7 +128,11 @@ function game() {
 // ################ EASY #######################
 function easy(iaPoss,testEnd,gridP2,listCases,turnText,grid) {
     let iaPlay = Math.floor(Math.random() * iaPoss.length);
+    iaPlay = iaPlay.toString();
     let getClass = document.getElementById(iaPoss[iaPlay])[0];
+    console.log(iaPoss);
+    console.log(iaPlay);
+    console.log(getClass);
     if (getClass.childNodes.length === 0) {
         let index = iaPoss.indexOf(getClass.id);
         grid[getClass.id] = currentPlayer;
@@ -371,5 +385,16 @@ function changeBg(case1,case2,case3,turnText) {
     }
 
 }
-// ###### LAUNCH GAME ON LOADING PAGE ######
-game();
+// ###### LAUNCH GAME ######
+function restart() {
+    let menu = document.getElementsByClassName("hidemenu")[0];
+    menu.setAttribute("class","menu");
+    gameDiv.setAttribute("class","hidemenu");
+};
+function start(difficultySelect) {
+    difficulty = difficultySelect;
+    let menu = document.getElementsByClassName("menu")[0];
+    menu.setAttribute("class","hidemenu");
+    gameDiv.setAttribute("class","");
+    game();
+};
